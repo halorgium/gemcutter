@@ -4,15 +4,18 @@ bundle_path "vendor/bundler_gems"
 source "http://gemcutter.org"
 source "http://gems.github.com"
 
-gem "rails", "2.3.4"
+gem "rails", "2.3.4", :require_as => []
 
 gem "clearance"
 gem "will_paginate"
 gem "sinatra"
-gem "xml-simple"
+gem "xml-simple", :require_as => 'xmlsimple'
 gem "gchartrb", :require_as => "google_chart"
 gem "ddollar-pacecar", "1.1.6", :require_as => "pacecar"
-gem "net-scp"
+gem "net-scp", :require_as => 'net/scp'
+
+gem "postgres"
+gem "json"
 
 only :test do
   gem "shoulda"
@@ -31,3 +34,5 @@ only :production do
   gem "ambethia-smtp-tls", :require_as => "smtp-tls"
   gem "memcache-client",   :require_as => "memcache"
 end
+
+disable_system_gems
